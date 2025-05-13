@@ -1,4 +1,5 @@
 import openpyxl, sys, logging
+from openpyxl.styles import Font
 
 """
 Create an N multiplication table on an Excel file
@@ -13,6 +14,7 @@ Written by Erfan Zamani <erfanzm99@gmail.com>
 logging.basicConfig(level=logging.DEBUG, filename="multiplication-table.log", filemode="w",
                     format="%(levelname)s - %(message)s")
 
+FONT_OBJ = Font(bold=True)
 
 # create nxn table multiplication
 table_n = int(sys.argv[1])
@@ -26,7 +28,11 @@ for value in range(1, table_n + 1):
 
     # populate cells
     sheet.cell(row=roc, column=1).value = value
+    sheet.cell(row=roc, column=1).font = FONT_OBJ
+
     sheet.cell(row=1, column=roc).value = value
+    sheet.cell(row=1, column=roc).font = FONT_OBJ
+
     logging.debug(f"current value is {value}:")
 
     # write multiplication table
