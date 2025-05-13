@@ -1,5 +1,14 @@
 import openpyxl, sys, logging
 
+"""
+Create an N multiplication table on an Excel file
+
+USAGE: python3 main.py <N>
+<N> - An integer, specifying the dimension of the table
+
+Written by Erfan Zamani <erfanzm99@gmail.com>
+"""
+
 # overwrite log-file on every start
 logging.basicConfig(level=logging.DEBUG, filename="multiplication-table.log", filemode="w",
                     format="%(levelname)s - %(message)s")
